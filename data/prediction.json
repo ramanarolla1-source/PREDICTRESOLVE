@@ -1,1 +1,138 @@
-
+{
+  "prediction": {
+    "prediction_id": "PR-2026-001",
+    "event_id": "EVT-2026-FINAL-001",
+    "event_type": "sports_match",
+    "title": "Team A vs Team B — Match Winner",
+    "status": "resolved",
+    "synthetic": true
+  },
+  "participant": {
+    "participant_id": "USER-001",
+    "identity_visibility": "private",
+    "wallet_address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  "private_terms": {
+    "prediction": {
+      "selection": "TEAM_A_WIN",
+      "visibility": "private"
+    },
+    "stake": {
+      "amount": 100,
+      "asset": "FXRP",
+      "visibility": "private"
+    },
+    "odds": {
+      "value": 1.85,
+      "visibility": "private"
+    },
+    "maximum_payout": {
+      "amount": 185,
+      "asset": "FXRP",
+      "visibility": "private"
+    },
+    "exposure_limit": {
+      "amount": 185,
+      "asset": "FXRP",
+      "visibility": "private"
+    },
+    "settlement_rule_version": "PREDICTRESOLVE-RULES-V1.0",
+    "visibility": "confidential"
+  },
+  "public_event_reference": {
+    "event_id": "EVT-2026-FINAL-001",
+    "description": "Team A vs Team B",
+    "event_status": "completed",
+    "source_requirement": "supported_public_web2_source",
+    "note": "Only the event reference is public. Private prediction terms are not exposed."
+  },
+  "source_intelligence": {
+    "selected_source_id": "SRC-001",
+    "source_classification": "preferred",
+    "selection_basis": [
+      "authority",
+      "provenance",
+      "relevance",
+      "freshness",
+      "corroboration"
+    ]
+  },
+  "fdc_web2json": {
+    "enabled": true,
+    "verification_mode": "demonstration",
+    "attestation_id": "DEMO-FDC-PR-2026-001",
+    "proof_reference": "DEMO-FDC-PROOF-PR-2026-001",
+    "verification_status": "verified",
+    "note": "Demonstration identifiers only. Replace with live FDC/Web2Json attestation data for deployment."
+  },
+  "verified_outcome": {
+    "event_status": "final",
+    "winner": "TEAM_A",
+    "home_score": 2,
+    "away_score": 1,
+    "evidence_confidence": 0.96,
+    "outcome_commitment": "0x1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "resolution": {
+    "input_visibility": "confidential",
+    "verified_outcome": "TEAM_A_WIN",
+    "prediction": "TEAM_A_WIN",
+    "result": "WIN",
+    "payout": {
+      "amount": 185,
+      "asset": "FXRP"
+    },
+    "resolution_rule": "prediction_matches_verified_outcome",
+    "resolution_rule_version": "PREDICTRESOLVE-RULES-V1.0",
+    "tee": {
+      "execution_mode": "demonstration",
+      "attestation_status": "valid",
+      "attestation_id": "DEMO-TEE-PR-2026-001",
+      "resolution_commitment": "0x2222222222222222222222222222222222222222222222222222222222222222"
+    }
+  },
+  "trust_receipt": {
+    "receipt_id": "TR-PR-2026-001-V1",
+    "version": 1,
+    "state": "active",
+    "evidence_commitment": "0x3333333333333333333333333333333333333333333333333333333333333333",
+    "resolution_commitment": "0x2222222222222222222222222222222222222222222222222222222222222222",
+    "settlement_commitment": "0x4444444444444444444444444444444444444444444444444444444444444444",
+    "receipt_commitment": "0x5555555555555555555555555555555555555555555555555555555555555555",
+    "storage": {
+      "type": "encrypted_off_chain",
+      "access_control": "participant_and_authorized_reviewers",
+      "on_chain_commitment": true
+    }
+  },
+  "settlement": {
+    "settlement_asset": "FXRP",
+    "settlement_status": "executed",
+    "settlement_contract": "0xBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "transaction_hash": "0x6666666666666666666666666666666666666666666666666666666666666666",
+    "payout": {
+      "amount": 185,
+      "asset": "FXRP"
+    },
+    "note": "Placeholder deployment values for the demonstration repository."
+  },
+  "privacy_boundary": {
+    "private_fields": [
+      "participant identity/context",
+      "prediction selection",
+      "stake",
+      "odds",
+      "maximum payout",
+      "exposure limit",
+      "private settlement parameters"
+    ],
+    "public_fields": [
+      "event reference",
+      "verified outcome reference",
+      "attestation references",
+      "cryptographic commitments",
+      "settlement state"
+    ]
+  },
+  "governance_note": "The confidential inputs remain protected while the resulting resolution and settlement provenance can be independently verified. A later review can validate the Trust Receipt commitment without requiring the private prediction terms to be published."
+}
