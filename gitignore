@@ -1,1 +1,115 @@
+# ============================================================
+# PredictResolve
+# ============================================================
 
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking / linting
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# ---------- Environment / Secrets ----------
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo/
+*~
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---------- Logs ----------
+*.log
+logs/
+
+# ---------- Cache / Temporary ----------
+.cache/
+cache/
+.tmp/
+tmp/
+*.tmp
+*.bak
+*.orig
+
+# ---------- Local Runtime Data ----------
+runtime/
+local_data/
+outputs/
+generated/
+
+# ---------- Confidential / Protected Data ----------
+private/
+secrets/
+confidential/
+encrypted_receipts/
+protected_receipts/
+
+# ---------- Blockchain / Deployment ----------
+deployments/
+broadcast/
+artifacts/
+cache-hardhat/
+typechain/
+typechain-types/
+
+# Foundry
+out/
+lib/
+
+# ---------- Node / Frontend (future use) ----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- Local Databases ----------
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------- Demo Runtime ----------
+demo/output/
+demo/temp/
+demo/generated/
+demo/recordings/
