@@ -1,1 +1,88 @@
-
+{
+  "outcome": {
+    "outcome_id": "OUT-2026-001",
+    "event_id": "EVT-2026-FINAL-001",
+    "event_type": "sports_match",
+    "synthetic": true
+  },
+  "source": {
+    "source_id": "SRC-001",
+    "name": "Official Sports Data API",
+    "publisher": "Demonstration Sports Data Provider",
+    "source_type": "sports_results_api",
+    "url": "https://example-sports-provider.com/api/matches/EVT-2026-FINAL-001",
+    "source_classification": "preferred",
+    "supports_web2json": true
+  },
+  "web2json": {
+    "method": "GET",
+    "request_status": "completed",
+    "response_format": "JSON",
+    "selected_fields": [
+      "status",
+      "home_team",
+      "away_team",
+      "home_score",
+      "away_score",
+      "winner"
+    ],
+    "jq_transformation": "{status: .status, home_team: .home_team, away_team: .away_team, home_score: .home_score, away_score: .away_score, winner: .winner}"
+  },
+  "public_response": {
+    "status": "final",
+    "home_team": "Team A",
+    "away_team": "Team B",
+    "home_score": 2,
+    "away_score": 1,
+    "winner": "TEAM_A"
+  },
+  "fdc_attestation": {
+    "verification_mode": "demonstration",
+    "verification_status": "verified",
+    "attestation_id": "DEMO-FDC-PR-2026-001",
+    "proof_reference": "DEMO-FDC-PROOF-PR-2026-001",
+    "response_commitment": "0x1111111111111111111111111111111111111111111111111111111111111111",
+    "note": "Demonstration identifiers only. Replace with live FDC/Web2Json attestation data for deployment."
+  },
+  "normalized_outcome": {
+    "event_status": "FINAL",
+    "winner": "TEAM_A",
+    "home_score": 2,
+    "away_score": 1,
+    "outcome_confidence": 0.96
+  },
+  "resolution_input": {
+    "normalized_event": "TEAM_A_WIN",
+    "ready_for_confidential_resolution": true
+  },
+  "source_consistency": {
+    "independent_sources_checked": 3,
+    "matching_sources": 3,
+    "conflicting_sources": 0,
+    "status": "consistent"
+  },
+  "privacy_boundary": {
+    "public_data": [
+      "event_id",
+      "event_status",
+      "teams",
+      "scores",
+      "winner",
+      "FDC attestation reference",
+      "response commitment"
+    ],
+    "not_included": [
+      "participant identity",
+      "prediction",
+      "stake",
+      "odds",
+      "exposure",
+      "payout parameters",
+      "private settlement rules"
+    ]
+  },
+  "next_stage": {
+    "component": "Flare Confidential Compute TEE",
+    "purpose": "Combine this verified outcome with protected prediction terms and calculate the confidential resolution."
+  }
+}
