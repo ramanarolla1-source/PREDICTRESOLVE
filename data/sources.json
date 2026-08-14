@@ -1,1 +1,267 @@
-
+{
+  "registry_version": "1.0",
+  "synthetic": true,
+  "purpose": "Demonstration catalogue for evaluating public Web2 sources before FDC/Web2Json verification.",
+  "architecture_principle": "AI qualifies source suitability; FDC/Web2Json attests the response from the selected supported source; the application validates source identity and evidence context before confidential resolution.",
+  "source_policy": {
+    "fdc_web2json_required": true,
+    "source_must_be_supported": true,
+    "source_must_be_whitelisted": true,
+    "source_url_validation_required": true,
+    "verification_environment": "Coston2 demonstration",
+    "note": "Synthetic source records are used in this repository. Replace demonstration endpoints with an actually supported/whitelisted Web2Json source before live deployment."
+  },
+  "evaluation_model": {
+    "method": "AI-assisted source qualification",
+    "criteria": {
+      "authority": "Who operates or publishes the source?",
+      "provenance": "Can the origin and publisher of the information be established?",
+      "relevance": "Is the source appropriate for the specific event being resolved?",
+      "freshness": "How current is the information?",
+      "corroboration": "Is the information supported by independent sources?"
+    },
+    "score_range": "0.00-1.00",
+    "classification_thresholds": {
+      "preferred": ">= 0.85",
+      "secondary": "0.70-0.84",
+      "context_only": "0.50-0.69",
+      "rejected": "< 0.50"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "name": "Official Sports Results API",
+      "publisher": "Demonstration Sports Data Provider",
+      "source_type": "sports_results_api",
+      "access_type": "public_api",
+      "url": "https://example-sports-provider.com/api/matches/EVT-2026-FINAL-001",
+      "supports_web2json": true,
+      "whitelist_status": "demonstration_supported",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "example-sports-provider.com",
+        "expected_path_pattern": "/api/matches/"
+      },
+      "ai_assessment": {
+        "authority": 0.97,
+        "provenance": 0.96,
+        "relevance": 0.99,
+        "freshness": 0.96,
+        "corroboration": 0.91,
+        "overall": 0.958,
+        "classification": "preferred"
+      },
+      "recommended_for": [
+        "match_status",
+        "final_score",
+        "winner",
+        "event_completion"
+      ],
+      "status": "eligible_for_fdc_verification",
+      "notes": "Synthetic demonstration source. A live deployment requires an actually supported and whitelisted API."
+    },
+    {
+      "source_id": "SRC-002",
+      "name": "Official Competition Results API",
+      "publisher": "Demonstration Competition Authority",
+      "source_type": "competition_results_api",
+      "access_type": "public_api",
+      "url": "https://example-competition.org/api/results/EVT-2026-FINAL-001",
+      "supports_web2json": true,
+      "whitelist_status": "demonstration_supported",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "example-competition.org",
+        "expected_path_pattern": "/api/results/"
+      },
+      "ai_assessment": {
+        "authority": 0.96,
+        "provenance": 0.97,
+        "relevance": 0.96,
+        "freshness": 0.94,
+        "corroboration": 0.93,
+        "overall": 0.952,
+        "classification": "preferred"
+      },
+      "recommended_for": [
+        "event_status",
+        "official_result",
+        "winner",
+        "final_score"
+      ],
+      "status": "eligible_for_fdc_verification",
+      "notes": "Synthetic second source for corroboration."
+    },
+    {
+      "source_id": "SRC-003",
+      "name": "Recognized Sports Data Provider",
+      "publisher": "Demonstration Institutional Data Provider",
+      "source_type": "sports_data_provider",
+      "access_type": "public_api",
+      "url": "https://example-data-provider.com/api/events/EVT-2026-FINAL-001",
+      "supports_web2json": true,
+      "whitelist_status": "demonstration_supported",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "example-data-provider.com",
+        "expected_path_pattern": "/api/events/"
+      },
+      "ai_assessment": {
+        "authority": 0.91,
+        "provenance": 0.91,
+        "relevance": 0.95,
+        "freshness": 0.93,
+        "corroboration": 0.85,
+        "overall": 0.91,
+        "classification": "preferred"
+      },
+      "recommended_for": [
+        "event_status",
+        "score",
+        "winner",
+        "independent_corroboration"
+      ],
+      "status": "eligible_for_fdc_verification",
+      "notes": "Synthetic institutional source used to demonstrate cross-source comparison."
+    },
+    {
+      "source_id": "SRC-004",
+      "name": "Official Competition Website",
+      "publisher": "Demonstration Competition Organizer",
+      "source_type": "official_web_page",
+      "access_type": "public_web",
+      "url": "https://example-competition.org/events/EVT-2026-FINAL-001",
+      "supports_web2json": false,
+      "whitelist_status": "not_configured",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "example-competition.org",
+        "expected_path_pattern": "/events/"
+      },
+      "ai_assessment": {
+        "authority": 0.94,
+        "provenance": 0.95,
+        "relevance": 0.92,
+        "freshness": 0.91,
+        "corroboration": 0.83,
+        "overall": 0.91,
+        "classification": "preferred"
+      },
+      "recommended_for": [
+        "context",
+        "manual_corroboration"
+      ],
+      "status": "contextual_only_in_current_demo",
+      "notes": "High-quality source but not configured for the Web2Json path in this prototype."
+    },
+    {
+      "source_id": "SRC-005",
+      "name": "Established Sports News Source",
+      "publisher": "Demonstration News Organization",
+      "source_type": "news",
+      "access_type": "public_web",
+      "url": "https://example-news.com/sports/event/EVT-2026-FINAL-001",
+      "supports_web2json": false,
+      "whitelist_status": "not_configured",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "example-news.com",
+        "expected_path_pattern": "/sports/event/"
+      },
+      "ai_assessment": {
+        "authority": 0.83,
+        "provenance": 0.88,
+        "relevance": 0.87,
+        "freshness": 0.94,
+        "corroboration": 0.79,
+        "overall": 0.862,
+        "classification": "preferred"
+      },
+      "recommended_for": [
+        "reputational_context",
+        "secondary_corroboration"
+      ],
+      "status": "contextual",
+      "notes": "Useful corroborating information but not the primary decision-grade source in this demonstration."
+    },
+    {
+      "source_id": "SRC-006",
+      "name": "Community Sports Website",
+      "publisher": "Unverified Community Publisher",
+      "source_type": "community_web",
+      "access_type": "public_web",
+      "url": "https://unknown-sports-example.com/match/EVT-2026-FINAL-001",
+      "supports_web2json": false,
+      "whitelist_status": "not_configured",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "unknown-sports-example.com",
+        "expected_path_pattern": "/match/"
+      },
+      "ai_assessment": {
+        "authority": 0.42,
+        "provenance": 0.38,
+        "relevance": 0.72,
+        "freshness": 0.71,
+        "corroboration": 0.28,
+        "overall": 0.502,
+        "classification": "context_only"
+      },
+      "recommended_for": [
+        "discovery_only"
+      ],
+      "status": "not_decision_grade",
+      "notes": "May provide discovery signals but should not independently drive settlement."
+    },
+    {
+      "source_id": "SRC-007",
+      "name": "Unverified Social Media Post",
+      "publisher": "Unknown User",
+      "source_type": "social_media",
+      "access_type": "public_web",
+      "url": "https://social.example.com/posts/EVT-2026-FINAL-001",
+      "supports_web2json": false,
+      "whitelist_status": "not_configured",
+      "url_validation": {
+        "required": true,
+        "expected_domain": "social.example.com",
+        "expected_path_pattern": "/posts/"
+      },
+      "ai_assessment": {
+        "authority": 0.17,
+        "provenance": 0.29,
+        "relevance": 0.54,
+        "freshness": 0.89,
+        "corroboration": 0.12,
+        "overall": 0.402,
+        "classification": "rejected"
+      },
+      "recommended_for": [],
+      "status": "rejected",
+      "notes": "Not suitable as decision-grade settlement evidence."
+    }
+  ],
+  "source_selection_policy": {
+    "preferred_order": [
+      "official_event_source",
+      "official_competition_source",
+      "recognized_institutional_provider",
+      "established_news_source",
+      "community_source",
+      "social_media"
+    ],
+    "minimum_classification": "secondary",
+    "web2json_requirement": true,
+    "require_source_url_validation": true,
+    "require_cross_source_check": true,
+    "conflict_action": "pending_resolution",
+    "notes": "A valid FDC proof is not sufficient by itself if the supplied source URL is not the intended source. The consuming application must validate source identity and event context."
+  },
+  "corroboration_policy": {
+    "minimum_matching_sources_for_high_confidence": 2,
+    "preferred_matching_sources_for_final_settlement": 2,
+    "conflicting_sources": "do_not_settle",
+    "single_source_fallback": "requires_explicit_policy"
+  }
+}
